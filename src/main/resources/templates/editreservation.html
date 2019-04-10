@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation bearbeiten</title>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+            integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+            crossorigin="anonymous"></script>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a class="navbar-brand" href="#">Iseberg</a>
+</nav>
+<div class="p-3">
+    <h3>Reservation bearbeiten:</h3>
+    <form action="#" th:action="@{/edit-reservation}" th:object="${reservation}" method="post">
+        <div class="form-group">
+            <label>Id:</label>
+            <input type="text" readonly class="form-control" th:field="*{id}"/>
+        </div>
+        <div class="form-group">
+            <label>Angaben:</label>
+            <input type="text" class="form-control" th:field="*{content}"/>
+        </div>
+        <button type="submit" class="btn btn-success">Bestätigen</button>
+        <a href="/list-reservations">
+            <button type="button" class="btn btn-warning">Abbrechen</button>
+        </a>
+    </form>
+</div>
+</body>
+</html>

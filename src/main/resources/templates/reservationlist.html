@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <title>Isberg Reservationen</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="css/custom.css">
+</head>
+<body>
+<div class="p-3">
+    <h4>Reservationen</h4>
+    <table class="table table-striped">
+        <caption>Liste der Reservation</caption>
+        <thead>
+        <tr class="custom-table">
+            <th>ID</th>
+            <th>Beschreibung</th>
+            <th>Bestätigt</th>
+            <th>Bearbeiten</th>
+            <th>Löschen</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="reservation: ${listOfReservations}">
+            <td th:text="${reservation.id}"></td>
+            <td th:text="${reservation.content}"></td>
+            <td>Nein</td>
+            <td><a class="btn btn-info" th:href="@{/edit-reservation/{id}(id=${reservation.id})}">Bearbeiten</a></td>
+            <td><a class="btn btn-warning" th:href="@{/delete-reservation?id={id}(id=${reservation.id})}">Löschen</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div>
+        <a class="btn btn-info" href="/add-reservation">Neue Reservation</a>
+    </div>
+    <script src="webjars/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="webjars/jquery/3.3.1-2/jquery.min.js"></script>
+</div>
+</body>
+</html>
